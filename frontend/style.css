@@ -1,0 +1,520 @@
+/* --------------------------------------------------
+   OceanEmbed - Government / Scientific Portal Style
+   -------------------------------------------------- */
+
+
+/* ---------- Basic page setup ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f6f7;
+    color: #222;
+    line-height: 1.6;
+}
+
+
+/* ---------- Header ---------- */
+
+.site-header {
+    background-color: white;
+    border-bottom: 1px solid #c9c9c9;
+}
+
+.header-top {
+    background-color: #eeeeee;
+    padding: 6px 6%;
+    font-size: 13px;
+    color: #444;
+}
+
+.header-main {
+    padding: 18px 6%;
+    border-bottom: 1px solid #dddddd;
+}
+
+.organization {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.emblem-placeholder {
+    width: 52px;
+    height: 52px;
+    border: 1px solid #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #555;
+}
+
+.organization h1 {
+    margin: 0;
+    color: #17365d;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.organization p {
+    margin: 2px 0 0;
+    color: #555;
+    font-size: 14px;
+}
+
+
+/* ---------- Navigation ---------- */
+
+.main-navigation {
+    display: flex;
+    padding: 0 6%;
+    background-color: #17365d;
+}
+
+.main-navigation a {
+    color: white;
+    text-decoration: none;
+    padding: 11px 18px;
+    font-size: 14px;
+}
+
+.main-navigation a:hover {
+    background-color: #234f7d;
+}
+
+
+/* ---------- Main content ---------- */
+
+main {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 35px 25px 60px;
+}
+
+.intro-section {
+    background-color: white;
+    border: 1px solid #d5d5d5;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+}
+
+section {
+    background-color: white;
+    border: 1px solid #d5d5d5;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    margin-top: 0;
+    color: #17365d;
+    font-size: 22px;
+    font-weight: 600;
+    border-bottom: 2px solid #17365d;
+    padding-bottom: 8px;
+}
+
+p {
+    font-size: 15px;
+}
+
+
+/* ---------- Footer ---------- */
+
+footer {
+    background-color: #eeeeee;
+    border-top: 1px solid #cccccc;
+    padding: 18px 6%;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+}
+
+
+/* ---------- Mobile layout ---------- */
+
+@media (max-width: 700px) {
+
+    .main-navigation {
+        flex-wrap: wrap;
+    }
+
+    .main-navigation a {
+        padding: 9px 12px;
+    }
+
+    main {
+        padding: 20px 12px 40px;
+    }
+
+    .organization h1 {
+        font-size: 23px;
+    }
+
+    section,
+    .intro-section {
+        padding: 20px;
+    }
+}
+/* ---------- Form elements ---------- */
+
+.notice {
+    background-color: #f1f4f7;
+    border-left: 4px solid #234f7d;
+    padding: 12px 15px;
+    margin: 20px 0 25px;
+    font-size: 14px;
+    color: #444;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 25px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    background-color: white;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #234f7d;
+}
+
+.form-actions {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.form-actions button {
+    padding: 11px 24px;
+    background-color: #234f7d;
+    color: white;
+    border: 1px solid #17365d;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form-actions button:hover {
+    background-color: #17365d;
+}
+
+.result-section {
+    margin-top: 30px;
+    border-top: 1px solid #d5d5d5;
+    padding-top: 20px;
+}
+
+#temperature-chart {
+    height: 450px;
+    margin-top: 20px;
+}
+
+
+/* ---------- Mobile form layout ---------- */
+
+@media (max-width: 700px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ---------- Prediction table ---------- */
+
+.prediction-table-container {
+    margin-top: 30px;
+    overflow-x: auto;
+}
+
+.prediction-table-container h4 {
+    margin-bottom: 12px;
+    color: #17365d;
+    font-size: 16px;
+}
+
+
+#prediction-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+
+#prediction-table th,
+#prediction-table td {
+    border: 1px solid #cfcfcf;
+    padding: 9px 12px;
+    text-align: left;
+}
+
+
+#prediction-table th {
+    background-color: #eeeeee;
+    color: #333;
+    font-weight: 600;
+}
+
+
+#prediction-table tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+.form-actions button:disabled {
+    background-color: #777;
+    border-color: #777;
+    cursor: not-allowed;
+}
+/* =========================================================
+   OceanEmbed - Additional Information Sections
+   ========================================================= */
+
+.content-section {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #d6dce3;
+    border-radius: 3px;
+}
+
+.content-section h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #17365d;
+    color: #17365d;
+    font-size: 22px;
+}
+
+.content-section p {
+    color: #444444;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+
+/* Information cards */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.info-card {
+    padding: 20px;
+    background-color: #f7f9fb;
+    border: 1px solid #d6dce3;
+    border-left: 4px solid #17365d;
+}
+
+.info-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #17365d;
+    font-size: 16px;
+}
+
+.info-card p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+
+/* Data source table */
+
+.data-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 11px 13px;
+    border: 1px solid #cfcfcf;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #17365d;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: #f7f9fb;
+}
+
+
+/* Prototype notice */
+
+.content-section .notice {
+    margin-top: 22px;
+}
+
+
+/* Performance cards */
+
+.performance-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.performance-card {
+    padding: 22px;
+    background-color: #f7f9fb;
+    border: 1px solid #d6dce3;
+}
+
+.performance-card h3 {
+    margin-top: 0;
+    color: #17365d;
+    font-size: 17px;
+}
+
+.performance-card p {
+    margin: 6px 0;
+}
+
+.performance-card .metric {
+    font-size: 18px;
+    font-weight: 600;
+    color: #17365d;
+}
+
+.performance-card small {
+    display: block;
+    margin-top: 12px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+
+/* Depth list */
+
+.depth-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.depth-list span {
+    padding: 7px 12px;
+    background-color: #eef2f6;
+    border: 1px solid #ccd4dd;
+    color: #333333;
+    font-size: 13px;
+}
+
+
+/* Limitations */
+
+.limitations-list {
+    margin-top: 15px;
+    padding-left: 22px;
+}
+
+.limitations-list li {
+    margin-bottom: 12px;
+    color: #444444;
+    line-height: 1.6;
+}
+
+
+/* Responsive layout */
+
+@media (max-width: 768px) {
+
+    .info-grid,
+    .performance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-section {
+        padding: 20px;
+    }
+
+    .data-table {
+        font-size: 13px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 8px;
+    }
+
+}
+/* ---------- Real data evidence ---------- */
+
+.evidence-section {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #d5d5d5;
+}
+
+.evidence-section h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #17365d;
+    font-size: 18px;
+}
+
+.evidence-section p {
+    line-height: 1.7;
+}
+
+.evidence-image {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f7f9fb;
+    border: 1px solid #d6dce3;
+}
+
+.evidence-image img {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid #cfcfcf;
+    background-color: white;
+}
+
+.image-caption {
+    margin: 12px auto 0;
+    max-width: 900px;
+    font-size: 13px !important;
+    color: #555555 !important;
+    text-align: center;
+}

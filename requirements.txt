@@ -1,0 +1,10 @@
+numpy
+torch
+joblib
+fastapi
+uvicorn
+pydantic
+xarray
+matplotlib
+copernicusmarine
+scikit-learn

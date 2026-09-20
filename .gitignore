@@ -1,0 +1,44 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+copernicus_env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+
+# Large/raw scientific data
+*.nc
+*.nc4
+*.h5
+*.hdf5
+
+# Temporary files
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python build files
+build/
+dist/
+*.egg-info/
+
+# Secrets / credentials
+.env
+*.env
+
+# Copernicus / API credentials
+copernicusmarine_credentials.*
+
+# Generated cache/results that are not required for the source repository
+archive/

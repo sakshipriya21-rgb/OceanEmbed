@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OceanEmbed | Subsurface Ocean Temperature Reconstruction</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Government / Institutional Header -->
+    <header class="site-header">
+
+        <div class="header-top">
+            <span>Government of India</span>
+        </div>
+
+        <div class="header-main">
+
+            <div class="organization">
+                <div class="emblem-placeholder">
+                    GOI
+                </div>
+
+                <div>
+                    <h1>OceanEmbed</h1>
+
+                    <p>
+                        Subsurface Ocean Temperature Reconstruction
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <nav class="main-navigation">
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#reconstruction">Reconstruction</a>
+            <a href="#data">Data</a>
+            <a href="#methodology">Documentation</a>
+
+        </nav>
+    </header>
+
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Page Introduction -->
+        <section id="home" class="intro-section">
+
+            <h2>
+                Satellite Observation-Based Subsurface
+                Ocean Temperature Reconstruction
+            </h2>
+
+            <p>
+                OceanEmbed is a prototype framework for estimating
+                depth-wise ocean temperature profiles from surface
+                ocean observations.
+            </p>
+
+        </section>
+
+
+        <!-- Reconstruction Section -->
+        <section id="reconstruction">
+
+            <h2>Temperature Profile Reconstruction</h2>
+
+            <p>
+                Enter the available surface ocean observations
+                to generate a subsurface temperature profile.
+            </p>
+
+
+            <div class="notice">Prototype status: The current reconstruction model is trained on a controlled realistic
+                synthetic dataset and evaluated against a small real GLORYS demonstration subset. Full-scale training on
+                synchronized satellite-GLORYS observations and independent ARGO validation are planned as the next
+                stage.</div>
+
+
+            <h3>Location</h3>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="latitude">Latitude (°N)</label>
+                    <input type="number" id="latitude" value="15.50" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label for="longitude">Longitude (°E)</label>
+                    <input type="number" id="longitude" value="60.50" step="0.01">
+                </div>
+
+            </div>
+
+
+            <h3>Surface Ocean Observations</h3>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="sst">Sea Surface Temperature (°C)</label>
+                    <input type="number" id="sst" value="29.00" step="0.01">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="sss">Sea Surface Salinity (PSU)</label>
+                    <input type="number" id="sss" value="35.00" step="0.01">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="ssh">SSH / SLA (m)</label>
+                    <input type="number" id="ssh" value="0.100" step="0.001">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="current-u">Current U (m/s)</label>
+                    <input type="number" id="current-u" value="0.200" step="0.001">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="current-v">Current V (m/s)</label>
+                    <input type="number" id="current-v" value="-0.100" step="0.001">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="wind-u">Wind U (m/s)</label>
+                    <input type="number" id="wind-u" value="3.00" step="0.01">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="wind-v">Wind V (m/s)</label>
+                    <input type="number" id="wind-v" value="-2.00" step="0.01">
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button type="button" id="predict-button">
+                    Generate Temperature Profile
+                </button>
+
+            </div>
+
+
+            <div id="result-section" class="result-section">
+
+                <h3>Reconstruction Result</h3>
+
+                <div id="prediction-status"></div>
+
+                <div id="temperature-chart">
+                    <canvas id="temperature-profile-chart"></canvas>
+                </div>
+
+                <div class="prediction-table-container">
+
+                    <h4>Predicted Temperature Values</h4>
+
+                    <table id="prediction-table">
+
+                        <thead>
+                            <tr>
+                                <th>Depth (m)</th>
+                                <th>Temperature (°C)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="prediction-table-body">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Additional project information -->
+        <section id="about" class="content-section">
+
+            <h2>About OceanEmbed</h2>
+
+            <p>
+                OceanEmbed is a prototype framework for reconstructing
+                subsurface ocean temperature profiles from surface ocean
+                observations. The system combines multiple surface variables
+                with a deep-learning model to estimate temperature at
+                standard ocean depths.
+            </p>
+
+            <p>
+                The prototype is designed around the North Indian Ocean
+                and follows the requirements of the Smart India Hackathon
+                problem SIH26066.
+            </p>
+
+        </section>
+
+
+        <section id="methodology" class="content-section">
+
+            <h2>Methodology</h2>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <h3>1. Surface observations</h3>
+                    <p>
+                        The model uses seven surface variables:
+                        SST, SSS, SSH/SLA, surface current U and V,
+                        and surface wind U and V.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>2. Data preprocessing</h3>
+                    <p>
+                        The input products are harmonized in time and space,
+                        converted to consistent units, and prepared for
+                        model input. Temperature profiles are interpolated
+                        to standard depth levels.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>3. Embedding engine</h3>
+                    <p>
+                        OceanEmbed compresses the seven surface variables
+                        into a 16-dimensional latent representation before
+                        reconstructing the subsurface temperature profile.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>4. Temperature reconstruction</h3>
+                    <p>
+                        The decoder produces temperatures at 15 standard
+                        depths from the surface down to 1000 metres.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="data" class="content-section">
+
+            <h2>Data Sources</h2>
+
+            <p>
+                The prototype preprocessing pipeline was developed using
+                ocean observation and reanalysis products available through
+                Copernicus Marine services.
+            </p>
+
+            <table class="data-table">
+
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Data source / product</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>SST</td>
+                        <td>OSTIA SST</td>
+                        <td>Surface temperature</td>
+                    </tr>
+
+                    <tr>
+                        <td>SSS</td>
+                        <td>Multi-Observation SSS</td>
+                        <td>Surface salinity</td>
+                    </tr>
+
+                    <tr>
+                        <td>SSH / SLA</td>
+                        <td>DUACS Sea Level</td>
+                        <td>Sea-level information</td>
+                    </tr>
+
+                    <tr>
+                        <td>Current U / V</td>
+                        <td>Sea-level derived currents</td>
+                        <td>Surface circulation</td>
+                    </tr>
+
+                    <tr>
+                        <td>Wind U / V</td>
+                        <td>ASCAT wind product</td>
+                        <td>Surface wind forcing</td>
+                    </tr>
+
+                    <tr>
+                        <td>Temperature target</td>
+                        <td>GLORYS12V1</td>
+                        <td>Subsurface temperature reference</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <div class="notice">
+                Some Copernicus products used in the prototype are blended
+                satellite and in-situ products rather than purely satellite-only
+                observations. The current implementation therefore treats them
+                as surface observation products.
+            </div>
+
+        </section>
+
+
+        <section id="performance" class="content-section">
+
+            <h2>Prototype Performance</h2>
+
+            <div class="performance-grid">
+
+                <div class="performance-card">
+                    <h3>Controlled synthetic test</h3>
+                    <p class="metric">MAE: 0.112 °C</p>
+                    <p>RMSE: 0.149 °C</p>
+                    <p>Bias: +0.003 °C</p>
+                    <small>
+                        Evaluated on held-out samples from the realistic
+                        synthetic dataset.
+                    </small>
+                </div>
+
+                <div class="performance-card">
+                    <h3>Real GLORYS demonstration</h3>
+                    <p class="metric">MAE: 0.967 °C</p>
+                    <p>RMSE: 1.147 °C</p>
+                    <p>Bias: -0.238 °C</p>
+                    <small>
+                        Evaluation on four complete real GLORYS samples.
+                        This is a demonstration subset, not final validation.
+                    </small>
+                </div>
+
+            </div>
+            <div class="evidence-section">
+
+    <h3>Real GLORYS Demonstration</h3>
+
+    <p>
+        The following plots show the real GLORYS12V1 ocean temperature profiles
+        extracted during the prototype data-processing stage. The profiles are
+        interpolated to the 15 standard depth levels used by OceanEmbed.
+    </p>
+
+    <div class="evidence-image">
+        <img src="images/real_glorys_profiles.png"
+             alt="Real GLORYS12V1 subsurface temperature profiles">
+
+        <p class="image-caption">
+            Figure 1. Real GLORYS12V1 subsurface temperature profiles for the
+            processed demonstration region.
+        </p>
+    </div>
+
+
+    <h3>Real Data vs OceanEmbed Demonstration</h3>
+
+    <p>
+        The second figure compares the GLORYS12V1 temperature profiles with
+        predictions produced by the current OceanEmbed prototype for the
+        available complete real-data samples.
+    </p>
+
+    <div class="evidence-image">
+        <img src="images/realistic_real_vs_prediction.png"
+             alt="Comparison between GLORYS12V1 and OceanEmbed predictions">
+
+        <p class="image-caption">
+            Figure 2. Comparison of real GLORYS12V1 temperature profiles with
+            OceanEmbed predictions for the available demonstration samples.
+        </p>
+    </div>
+
+    <div class="notice">
+        These results are a prototype demonstration based on a small real
+        GLORYS subset. The current model was trained on a controlled realistic
+        synthetic dataset. Full-scale training using synchronized real
+        satellite-GLORYS observations and independent ARGO validation remain
+        future work.
+    </div>
+
+</div>
+        </section>
+
+
+        <section id="documentation" class="content-section">
+
+            <h2>Output Depth Levels</h2>
+
+            <p>
+                The current prototype reconstructs temperature at the
+                following standard depth levels:
+            </p>
+
+            <div class="depth-list">
+                <span>0 m</span>
+                <span>5 m</span>
+                <span>10 m</span>
+                <span>20 m</span>
+                <span>30 m</span>
+                <span>50 m</span>
+                <span>75 m</span>
+                <span>100 m</span>
+                <span>125 m</span>
+                <span>150 m</span>
+                <span>200 m</span>
+                <span>300 m</span>
+                <span>500 m</span>
+                <span>700 m</span>
+                <span>1000 m</span>
+            </div>
+
+        </section>
+
+
+        <section id="limitations" class="content-section">
+
+            <h2>Limitations and Next Stage</h2>
+
+            <ul class="limitations-list">
+
+                <li>
+                    The current neural network is trained on a controlled
+                    realistic synthetic dataset.
+                </li>
+
+                <li>
+                    Only a small real GLORYS subset has been used for the
+                    present demonstration.
+                </li>
+
+                <li>
+                    Full-scale synchronized satellite/observation and GLORYS
+                    training has not yet been performed.
+                </li>
+
+                <li>
+                    Independent validation using gridded ARGO observations
+                    is planned for the next stage.
+                </li>
+
+                <li>
+                    The prototype currently demonstrates the reconstruction
+                    workflow rather than operational ocean forecasting.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            OceanEmbed | Prototype for Smart India Hackathon
+        </p>
+
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

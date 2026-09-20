@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OceanEmbed - System Architecture</title>
+
+    <link rel="stylesheet" href="architecture.css">
+</head>
+
+<body>
+
+    <main class="page">
+
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1>OceanEmbed - System Architecture</h1>
+
+            <p>
+                Satellite observation-based subsurface ocean temperature
+                reconstruction prototype
+            </p>
+        </header>
+
+
+        <!-- Architecture Diagram -->
+        <section class="architecture">
+
+            <!-- Input -->
+            <div class="architecture-box input-box">
+
+                <h2>Surface Ocean Observations</h2>
+
+                <div class="input-grid">
+
+                    <div>Sea Surface Temperature (SST)</div>
+
+                    <div>Sea Surface Salinity (SSS)</div>
+
+                    <div>Sea Surface Height / SLA</div>
+
+                    <div>Surface Current U</div>
+
+                    <div>Surface Current V</div>
+
+                    <div>Wind U</div>
+
+                    <div>Wind V</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="arrow">↓</div>
+
+
+            <!-- Preprocessing -->
+            <div class="architecture-box">
+
+                <h2>Data Preprocessing</h2>
+
+                <div class="process-list">
+
+                    <span>Unit Conversion</span>
+                    <span>Temporal Matching</span>
+                    <span>Spatial Matching</span>
+                    <span>Interpolation</span>
+                    <span>Standardization</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="arrow">↓</div>
+
+
+            <!-- Encoder -->
+            <div class="architecture-box">
+
+                <h2>OceanEmbed Encoder</h2>
+
+                <div class="model-flow">
+
+                    <div>7 Input Variables</div>
+
+                    <div class="mini-arrow">↓</div>
+
+                    <div>Linear Layer: 7 → 32</div>
+
+                    <div class="mini-arrow">↓</div>
+
+                    <div>ReLU</div>
+
+                    <div class="mini-arrow">↓</div>
+
+                    <div>Linear Layer: 32 → 16</div>
+
+                    <div class="mini-arrow">↓</div>
+
+                    <div class="highlight">
+                        16-Dimensional Ocean Embedding
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="arrow">↓</div>
+
+
+            <!-- Decoder -->
+            <div class="architecture-box">
+
+                <h2>OceanEmbed Decoder</h2>
+
+                <div class="model-flow">
+
+                    <div>16-Dimensional Embedding</div>
+
+                    <div class="mini-arrow">↓</div>
+
+                    <div>Linear Layer: 16 → 32</div>
+
+                    <div class="mini-arrow">↓</div>
+
+                    <div>ReLU</div>
+
+                    <div class="mini-arrow">↓</div>
+
+                    <div>Linear Layer: 32 → 15</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="arrow">↓</div>
+
+
+            <!-- Output -->
+            <div class="architecture-box output-box">
+
+                <h2>Subsurface Temperature Profile</h2>
+
+                <p>
+                    15 predicted temperature values
+                </p>
+
+                <p>
+                    Standard depths:
+                    <strong>0 m - 1000 m</strong>
+                </p>
+
+            </div>
+
+
+            <div class="arrow">↓</div>
+
+
+            <!-- Web Application -->
+            <div class="architecture-box">
+
+                <h2>Web Application</h2>
+
+                <div class="application-grid">
+
+                    <div>FastAPI Backend</div>
+
+                    <div>JavaScript Frontend</div>
+
+                    <div>Chart.js Visualization</div>
+
+                    <div>REST API</div>
+
+                    <div>Prediction Table</div>
+
+                    <div>Temperature Profile</div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Status -->
+            <div class="status-note">
+
+                <strong>Prototype status:</strong>
+
+                The current neural network is trained on a controlled
+                realistic synthetic dataset and demonstrated against a
+                small real GLORYS12V1 subset. Full-scale real-data training
+                and independent ARGO validation are planned as future work.
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="architecture.js"></script>
+
+</body>
+
+</html>
