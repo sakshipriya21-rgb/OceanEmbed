@@ -58,6 +58,7 @@ OceanEmbed predicts temperature at:
 0 m, 5 m, 10 m, 20 m, 30 m,
 50 m, 75 m, 100 m, 125 m, 150 m,
 200 m, 300 m, 500 m, 700 m, 1000 m
+```
 
 ## 1. Problem Statement
 
@@ -136,6 +137,7 @@ The model predicts temperature at the following 15 depth levels:
 500 m
 700 m
 1000 m
+```
 
 ---
 
@@ -195,6 +197,7 @@ Surface Ocean Observations
 | FastAPI + JavaScript        |
 | Chart.js + Prediction Table |
 +-----------------------------+
+```
 
 ---
 
@@ -217,12 +220,13 @@ Linear(32 -> 16)
    |
    v
 16-dimensional embedding
+```
 
 ---
 
-## 9. Model Performance
+## 6. Model Performance
 
-### 9.1 Held-Out Synthetic Test
+### 6.1 Held-Out Synthetic Test
 
 The current OceanEmbed model achieved:
 
@@ -236,7 +240,7 @@ These values represent performance on held-out realistic synthetic data.
 
 They should not be interpreted as final real-ocean prediction accuracy.
 
-### 9.2 Real GLORYS Demonstration
+### 6.2 Real GLORYS Demonstration
 
 The trained model was additionally evaluated against four complete real
 GLORYS demonstration samples.
@@ -252,7 +256,7 @@ representative real-world validation.
 
 ---
 
-## 10. Real GLORYS Demonstration
+## 7. Real GLORYS Demonstration
 
 The project includes real GLORYS12V1 temperature profiles processed through
 the data pipeline.
@@ -265,10 +269,11 @@ These figures are available in:
 ```text
 frontend/images/real_glorys_profiles.png
 frontend/images/realistic_real_vs_prediction.png
+```
 
 ---
 
-## 13. Project Structure
+## 8. Project Structure
 
 ```text
 OceanEmbed/
@@ -324,10 +329,11 @@ OceanEmbed/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+```
 
 ---
 
-## 14. Installation
+## 9. Installation
 
 The project uses a dedicated Python environment for its machine-learning
 and ocean-data processing components.
@@ -335,4 +341,10 @@ and ocean-data processing components.
 Activate the project environment:
 
 ```powershell
+Terminal 1:
 conda activate copernicus_env
+python -m uvicorn backend:app --reload
+
+Terminal 2:
+open frontend/index.html
+```
