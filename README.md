@@ -275,27 +275,55 @@ OceanEmbed/
 │
 ├── backend.py
 ├── embedding_model.py
-├── README.md
+├── create_realistic_dataset.py
+├── train_realistic_model.py
 │
-├── frontend/
-│   ├── index.html
-│   ├── style.css
-│   ├── script.js
-│   │
-│   └── images/
-│       ├── real_glorys_profiles.png
-│       └── realistic_real_vs_prediction.png
+├── Real-data processing
+│   ├── build_real_dataset.py
+│   ├── prepare_real_glorys.py
+│   ├── interpolate_depths.py
+│   ├── convert_sst_region.py
+│   ├── match_*_to_glorys.py
+│   └── match_*_region_025.py
+│
+├── Data inspection & validation
+│   ├── inspect_*.py
+│   ├── check_*.py
+│   └── plot_real_profiles.py
+│
+├── data/
+│   ├── raw/
+│   ├── realistic_processed/
+│   ├── synthetic_realistic/
+│   ├── real_model_ready/
+│   ├── real_glorys_region/
+│   ├── real_glorys_test/
+│   ├── real_sealevel_region/
+│   ├── real_sealevel_test/
+│   ├── real_sss_region/
+│   ├── real_sss_test/
+│   ├── real_sst_region/
+│   ├── real_sst_test/
+│   ├── real_wind_region/
+│   └── real_wind_test/
 │
 ├── models/
 │   └── oceanembed_realistic.pth
 │
-├── data/
-│   ├── synthetic/
-│   ├── synthetic_realistic/
-│   ├── realistic_processed/
-│   └── real_model_ready/
+├── frontend/
+│   ├── index.html
+│   ├── script.js
+│   ├── style.css
+│   ├── architecture.html
+│   ├── architecture.js
+│   ├── architecture.css
+│   └── images/
+│       ├── real_glorys_profiles.png
+│       └── realistic_real_vs_prediction.png
 │
-└── ...
+├── requirements.txt
+├── README.md
+└── .gitignore
 
 ---
 
