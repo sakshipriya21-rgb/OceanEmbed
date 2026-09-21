@@ -1,27 +1,63 @@
 # OceanEmbed
 
-### Satellite Observation-Based Subsurface Ocean Temperature Reconstruction
+### AI-Based Subsurface Ocean Temperature Reconstruction
 
-OceanEmbed is a prototype deep-learning framework for reconstructing
-subsurface ocean temperature profiles from surface ocean observations.
+OceanEmbed is a prototype deep-learning framework that reconstructs
+subsurface ocean temperature profiles from seven surface ocean observations.
 
-The project is developed as a prototype implementation for the Smart India
-Hackathon problem statement SIH26066.
+The project is developed as a prototype implementation for the
+**Smart India Hackathon problem statement SIH26066**.
 
-The system takes seven surface ocean variables as input:
+### What OceanEmbed Does
 
-- Sea Surface Temperature (SST)
-- Sea Surface Salinity (SSS)
-- Sea Surface Height / Sea Level Anomaly (SSH/SLA)
-- Surface Current U
-- Surface Current V
-- Surface Wind U
-- Surface Wind V
+OceanEmbed takes the following surface ocean variables as input:
 
-and predicts ocean temperature at 15 standard depth levels from the surface
-down to 1000 metres.
+| Surface Variable | Description |
+|---|---|
+| SST | Sea Surface Temperature |
+| SSS | Sea Surface Salinity |
+| SSH / SLA | Sea Surface Height / Sea Level Anomaly |
+| Current U | Eastward surface current |
+| Current V | Northward surface current |
+| Wind U | Eastward surface wind |
+| Wind V | Northward surface wind |
 
----
+The model encodes these seven variables into a compact
+**16-dimensional representation** and decodes the representation into
+a temperature profile at **15 standard depth levels**, from the surface
+to 1000 m.
+
+The web interface additionally accepts latitude and longitude to identify
+the requested location.
+
+### Prototype Status
+
+> **Current status: Prototype / Proof of Concept**
+>
+> The present reconstruction model is trained on a controlled realistic
+> synthetic dataset and demonstrated against a small real GLORYS12V1 subset.
+> Large-scale training using synchronized real satellite-GLORYS observations
+> and independent ARGO validation remain future development stages.
+
+### Demonstration
+
+The project includes a working web interface built with **FastAPI,
+JavaScript and Chart.js** for generating and visualizing subsurface
+temperature profiles.
+
+![OceanEmbed real GLORYS demonstration](frontend/images/realistic_real_vs_prediction.png)
+
+*Example comparison between real GLORYS12V1 temperature profiles and
+OceanEmbed prototype predictions.*
+
+### Key Output
+
+OceanEmbed predicts temperature at:
+
+```text
+0 m, 5 m, 10 m, 20 m, 30 m,
+50 m, 75 m, 100 m, 125 m, 150 m,
+200 m, 300 m, 500 m, 700 m, 1000 m
 
 ## 1. Problem Statement
 
