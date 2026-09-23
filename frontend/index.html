@@ -39,13 +39,12 @@
         </div>
 
         <nav class="main-navigation">
-
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#reconstruction">Reconstruction</a>
+            <a href="#spatial">Spatial Field</a>
             <a href="#data">Data</a>
             <a href="#methodology">Documentation</a>
-
         </nav>
     </header>
 
@@ -194,7 +193,114 @@
             </div>
 
         </section>
+        <section id="spatial" class="content-section">
 
+            <h2>Spatial Temperature Reconstruction</h2>
+
+            <p>
+                OceanEmbed can also be demonstrated as a spatial reconstruction
+                system. The following demonstration uses a small real-data
+                0.25° × 0.25° grid derived from the processed GLORYS12V1
+                demonstration dataset.
+            </p>
+
+            <div class="notice">
+                Demonstration region: 15.50°N–15.75°N and 60.50°E–60.75°E.
+                The demonstration contains four 0.25° grid locations and
+                reconstructs temperature at 15 standard depth levels.
+            </div>
+
+            <div class="spatial-controls">
+
+                <label for="spatial-depth">
+                    Select depth:
+                </label>
+
+                <select id="spatial-depth" onchange="updateSpatialMaps(this.value)">
+                    <option value="0">0 m</option>
+                    <option value="100">100 m</option>
+                    <option value="200">200 m</option>
+                    <option value="500">500 m</option>
+                    <option value="1000">1000 m</option>
+                </select>
+
+            </div>
+
+            <div class="spatial-comparison">
+
+                <div class="spatial-panel">
+
+                    <h3>Real GLORYS12V1</h3>
+
+                    <img id="real-spatial-map" src="images/spatial_demo/real_glorys_0m.png"
+                        alt="Real GLORYS12V1 temperature map">
+
+                </div>
+
+                <div class="spatial-panel">
+
+                    <h3>OceanEmbed Prediction</h3>
+
+                    <img id="prediction-spatial-map" src="images/spatial_demo/oceanembed_0m.png"
+                        alt="OceanEmbed predicted temperature map">
+
+                </div>
+
+            </div>
+            <div class="spatial-error-map">
+
+                <h3>Spatial Absolute Error</h3>
+
+                <img id="spatial-error-map" src="images/spatial_demo/error_0m.png"
+                    alt="OceanEmbed spatial absolute error map">
+
+                <p class="image-caption">
+                    Absolute temperature reconstruction error between
+                    OceanEmbed and GLORYS12V1 at the selected depth.
+                </p>
+
+            </div>
+            <p class="image-caption">
+                Spatial comparison between real GLORYS12V1 temperature and
+                OceanEmbed reconstruction at the selected depth.
+            </p>
+            <div class="spatial-error-summary">
+
+                <h3>Spatial Reconstruction Error</h3>
+
+                <p>
+                    The following error values are calculated from the four-point
+                    demonstration grid by comparing OceanEmbed predictions with
+                    the corresponding GLORYS12V1 temperatures.
+                </p>
+
+                <div class="notice">
+                    Demonstration metric: spatial RMSE at the selected depth.
+                    These values are calculated from the small demonstration
+                    subset and should not be interpreted as full North Indian
+                    Ocean validation results.
+                </div>
+
+                <p id="spatial-rmse">
+                    Spatial RMSE: —
+                </p>
+                <p id="spatial-correlation">
+                    Overall correlation: 0.9868
+                </p>
+            </div>
+            <div class="spatial-rmse-chart">
+
+                <h3>Depth-wise Reconstruction Error</h3>
+
+                <img src="images/depth_wise_rmse.png" alt="Depth-wise spatial reconstruction RMSE chart">
+
+                <p class="image-caption">
+                    RMSE of the OceanEmbed reconstruction across the
+                    15 standard depth levels in the demonstration grid.
+                </p>
+
+            </div>
+        </section>
         <!-- Additional project information -->
         <section id="about" class="content-section">
 
@@ -367,52 +473,51 @@
             </div>
             <div class="evidence-section">
 
-    <h3>Real GLORYS Demonstration</h3>
+                <h3>Real GLORYS Demonstration</h3>
 
-    <p>
-        The following plots show the real GLORYS12V1 ocean temperature profiles
-        extracted during the prototype data-processing stage. The profiles are
-        interpolated to the 15 standard depth levels used by OceanEmbed.
-    </p>
+                <p>
+                    The following plots show the real GLORYS12V1 ocean temperature profiles
+                    extracted during the prototype data-processing stage. The profiles are
+                    interpolated to the 15 standard depth levels used by OceanEmbed.
+                </p>
 
-    <div class="evidence-image">
-        <img src="images/real_glorys_profiles.png"
-             alt="Real GLORYS12V1 subsurface temperature profiles">
+                <div class="evidence-image">
+                    <img src="images/real_glorys_profiles.png" alt="Real GLORYS12V1 subsurface temperature profiles">
 
-        <p class="image-caption">
-            Figure 1. Real GLORYS12V1 subsurface temperature profiles for the
-            processed demonstration region.
-        </p>
-    </div>
+                    <p class="image-caption">
+                        Figure 1. Real GLORYS12V1 subsurface temperature profiles for the
+                        processed demonstration region.
+                    </p>
+                </div>
 
 
-    <h3>Real Data vs OceanEmbed Demonstration</h3>
+                <h3>Real Data vs OceanEmbed Demonstration</h3>
 
-    <p>
-        The second figure compares the GLORYS12V1 temperature profiles with
-        predictions produced by the current OceanEmbed prototype for the
-        available complete real-data samples.
-    </p>
+                <p>
+                    The second figure compares the GLORYS12V1 temperature profiles with
+                    predictions produced by the current OceanEmbed prototype for the
+                    available complete real-data samples.
+                </p>
 
-    <div class="evidence-image">
-        <img src="images/realistic_real_vs_prediction.png"
-             alt="Comparison between GLORYS12V1 and OceanEmbed predictions">
+                <div class="evidence-image">
+                    <img src="images/realistic_real_vs_prediction.png"
+                        alt="Comparison between GLORYS12V1 and OceanEmbed predictions">
 
-        <p class="image-caption">
-            Figure 2. Comparison of real GLORYS12V1 temperature profiles with
-            OceanEmbed predictions for the available demonstration samples.
-        </p>
-    </div>
+                    <p class="image-caption">
+                        Figure 2. Comparison of real GLORYS12V1 temperature profiles with
+                        OceanEmbed predictions for the available demonstration samples.
+                    </p>
+                </div>
 
-    <div class="notice">
-        These results are a prototype demonstration based on a small real
-        GLORYS subset. The current model was trained on a controlled realistic
-        synthetic dataset. Full-scale training using synchronized real
-        satellite-GLORYS observations and independent ARGO validation remain
-        future work.
-    </div>
+                <div class="notice">
+                    These results are a prototype demonstration based on a small real
+                    GLORYS subset. The current model was trained on a controlled realistic
+                    synthetic dataset. Full-scale training using synchronized real
+                    satellite-GLORYS observations and independent ARGO validation remain
+                    future work.
+                </div>
 
-</div>
+            </div>
         </section>
 
 

@@ -310,3 +310,66 @@ function drawPredictionTable(depths, temperatures) {
     });
 
 }
+// --------------------------------------------------
+// Spatial temperature map controls
+// --------------------------------------------------
+
+function updateSpatialMaps(depth) {
+
+    const realMap = document.getElementById("real-spatial-map");
+    const predictionMap = document.getElementById("prediction-spatial-map");
+    const errorMap = document.getElementById("spatial-error-map");
+    const rmseText = document.getElementById("spatial-rmse");
+
+    const spatialRMSE = {
+        0: 0.2580,
+        100: 0.4585,
+        200: 1.4982,
+        500: 0.2575,
+        1000: 0.5686
+    };
+
+    if (realMap) {
+        realMap.src =
+            "images/spatial_demo/real_glorys_" +
+            depth +
+            "m.png?v=" +
+            Date.now();
+    }
+
+    if (predictionMap) {
+        predictionMap.src =
+            "images/spatial_demo/oceanembed_" +
+            depth +
+            "m.png?v=" +
+            Date.now();
+    }
+
+    if (errorMap) {
+        errorMap.src =
+            "images/spatial_demo/error_" +
+            depth +
+            "m.png?v=" +
+            Date.now();
+    }
+
+    if (rmseText) {
+        rmseText.innerText =
+            "Spatial RMSE: " +
+            spatialRMSE[depth].toFixed(4) +
+            " °C";
+    }
+}
+document.addEventListener("DOMContentLoaded", function () {
+
+    const spatialDepth = document.getElementById("spatial-depth");
+
+    if (spatialDepth) {
+        spatialDepth.addEventListener("change", function () {
+
+            updateSpatialMaps(this.value);
+
+        });
+    }
+
+});

@@ -518,3 +518,95 @@ footer {
     color: #555555 !important;
     text-align: center;
 }
+/* Spatial temperature reconstruction */
+
+.spatial-controls {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f5f7f9;
+    border: 1px solid #d5dce3;
+}
+
+.spatial-controls label {
+    margin-right: 12px;
+    font-weight: 600;
+}
+
+.spatial-controls select {
+    padding: 8px 12px;
+    border: 1px solid #9da8b3;
+    background-color: white;
+    font-size: 14px;
+}
+
+.spatial-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.spatial-panel {
+    padding: 15px;
+    background-color: #f7f9fb;
+    border: 1px solid #d6dce3;
+}
+
+.spatial-panel h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #17365d;
+    font-size: 18px;
+}
+
+.spatial-panel img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #cfcfcf;
+    background-color: white;
+}
+
+@media (max-width: 800px) {
+
+    .spatial-comparison {
+        grid-template-columns: 1fr;
+    }
+
+}
+.spatial-rmse-chart {
+    margin-top: 30px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #d9e2ec;
+    border-radius: 6px;
+}
+
+.spatial-rmse-chart h3 {
+    margin-top: 0;
+    color: #12355b;
+}
+
+.spatial-rmse-chart img {
+    display: block;
+    width: 100%;
+    max-width: 850px;
+    height: auto;
+    margin: 20px auto;
+    border: 1px solid #e1e7ed;
+}
+
+.spatial-rmse-chart .image-caption {
+    margin-bottom: 0;
+}
+.spatial-error-summary p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#spatial-rmse,
+#spatial-correlation {
+    font-weight: 600;
+    color: #12355b;
+    margin-top: 10px;
+}
