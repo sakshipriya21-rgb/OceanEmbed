@@ -43,6 +43,7 @@
             <a href="#about">About</a>
             <a href="#reconstruction">Reconstruction</a>
             <a href="#spatial">Spatial Field</a>
+            <a href="#argo-validation">ARGO Validation</a>
             <a href="#data">Data</a>
             <a href="#methodology">Documentation</a>
         </nav>
@@ -587,7 +588,102 @@
         </section>
 
 
-    </main>
+    
+<!-- ARGO_VALIDATION_SECTION -->
+
+<section class="argo-validation-section" id="argo-validation">
+
+    <div class="section-heading">
+        <span class="section-label">INDEPENDENT VALIDATION</span>
+        <h2>ARGO Profile Validation</h2>
+        <p>
+            OceanEmbed prediction compared with an independent ARGO temperature
+            profile collected in the Arabian Sea.
+        </p>
+    </div>
+
+    <div class="argo-info-grid">
+
+        <div class="argo-info-card">
+            <span>Location</span>
+            <strong>14.304°N, 72.761°E</strong>
+        </div>
+
+        <div class="argo-info-card">
+            <span>Date</span>
+            <strong>02 August 2020</strong>
+        </div>
+
+        <div class="argo-info-card">
+            <span>ARGO Platform</span>
+            <strong>2902174</strong>
+        </div>
+
+        <div class="argo-info-card">
+            <span>Profile Cycle</span>
+            <strong>379</strong>
+        </div>
+
+    </div>
+
+    <div class="argo-metrics-grid">
+
+        <div class="argo-metric-card">
+            <span>MAE</span>
+            <strong>1.9531 °C</strong>
+        </div>
+
+        <div class="argo-metric-card">
+            <span>RMSE</span>
+            <strong>2.2934 °C</strong>
+        </div>
+
+        <div class="argo-metric-card">
+            <span>Bias</span>
+            <strong>+0.7941 °C</strong>
+        </div>
+
+    </div>
+
+    <div class="argo-result-card">
+
+        <div class="argo-text">
+            <h3>Temperature Profile Comparison</h3>
+
+            <p>
+                The figure compares the temperature profile reconstructed by
+                OceanEmbed with the corresponding independent ARGO observations
+                at 15 standard depth levels from the surface to 1000 m.
+            </p>
+
+            <p>
+                The reconstruction captures the overall vertical temperature
+                structure, while differences are visible particularly in the
+                thermocline and intermediate-depth region.
+            </p>
+
+            <div class="argo-note">
+                <strong>Validation scope:</strong>
+                This is a single-profile real-world diagnostic using an
+                independently observed ARGO profile. It should not be interpreted
+                as representative large-scale model accuracy. Broader validation
+                using multiple ARGO profiles and time periods is planned as the
+                next stage.
+            </div>
+        </div>
+
+        <div class="argo-plot">
+            <img
+                src="images/argo_validation_profile.png"
+                alt="OceanEmbed prediction compared with independent ARGO temperature profile"
+            >
+        </div>
+
+    </div>
+
+</section>
+
+</main>
 
 
     <!-- Footer -->

@@ -36,8 +36,10 @@ the requested location.
 >
 > The present reconstruction model is trained on a controlled realistic
 > synthetic dataset and demonstrated against a small real GLORYS12V1 subset.
-> Large-scale training using synchronized real satellite-GLORYS observations
-> and independent ARGO validation remain future development stages.
+> A single real ARGO profile has also been processed as a validation diagnostic
+> using matched surface observations. Broad independent ARGO validation and
+> large-scale training using synchronized real satellite-GLORYS observations
+> remain future development stages.
 
 ### Demonstration
 
@@ -254,6 +256,42 @@ GLORYS demonstration samples.
 This evaluation is only a small demonstration and is not a statistically
 representative real-world validation.
 
+### 6.3 Single-Profile ARGO Diagnostic
+
+A real ARGO profile from the INCOIS ERDDAP dataset was processed and
+interpolated to the same 15 standard depth levels used by OceanEmbed.
+
+Profile details:
+
+| Parameter | Value |
+|---|---|
+| Latitude | 14.304°N |
+| Longitude | 72.761°E |
+| Date | 02 August 2020 |
+| Platform | 2902174 |
+| Cycle | 379 |
+
+The corresponding surface observations were assembled from daily
+ocean observation products and supplied to the current OceanEmbed model.
+
+The resulting comparison gave:
+
+| Metric | Result |
+|---|---:|
+| MAE | 1.953 °C |
+| RMSE | 2.293 °C |
+| Bias | +0.794 °C |
+
+This is a **single-profile diagnostic**, not a statistically representative
+independent ARGO validation. The current model was trained on a controlled
+realistic synthetic dataset, so these results should not be interpreted as
+final real-ocean model accuracy.
+
+The comparison figure is available at:
+
+```text
+frontend/images/argo_validation_profile.png
+```
 ---
 
 ## 7. Real GLORYS Demonstration
@@ -294,7 +332,16 @@ OceanEmbed/
 ├── Data inspection & validation
 │   ├── inspect_*.py
 │   ├── check_*.py
-│   └── plot_real_profiles.py
+│   ├── plot_real_profiles.py
+│   ├── prepare_argo_profile.py
+│   ├── calculate_argo_validation.py
+│   └── predict_argo_profile.py
+│
+├── ARGO surface-data processing
+│   ├── download_argo_sst.py
+│   ├── download_argo_sss.py
+│   ├── download_argo_sealevel.py
+│   └── download_argo_wind.py
 │
 ├── data/
 │   ├── raw/
@@ -310,7 +357,8 @@ OceanEmbed/
 │   ├── real_sst_region/
 │   ├── real_sst_test/
 │   ├── real_wind_region/
-│   └── real_wind_test/
+│   ├── real_wind_test/
+│   └── argo_validation/
 │
 ├── models/
 │   └── oceanembed_realistic.pth
@@ -324,7 +372,8 @@ OceanEmbed/
 │   ├── architecture.css
 │   └── images/
 │       ├── real_glorys_profiles.png
-│       └── realistic_real_vs_prediction.png
+│       ├── realistic_real_vs_prediction.png
+│       └── argo_validation_profile.png
 │
 ├── requirements.txt
 ├── README.md
