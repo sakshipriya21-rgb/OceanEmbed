@@ -3,7 +3,9 @@
    -------------------------------------------------- */
 
 
-/* ---------- Basic page setup ---------- */
+/* ==================================================
+   BASIC PAGE SETUP
+   ================================================== */
 
 * {
     box-sizing: border-box;
@@ -18,24 +20,60 @@ body {
 }
 
 
-/* ---------- Header ---------- */
+/* ==================================================
+   HEADER
+   ================================================== */
 
 .site-header {
     background-color: white;
     border-bottom: 1px solid #c9c9c9;
 }
 
-.header-top {
-    background-color: #eeeeee;
-    padding: 6px 6%;
-    font-size: 13px;
-    color: #444;
+
+/* ---------- Common header width ---------- */
+
+.header-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
+
+/* ---------- Top institutional strip ---------- */
+
+.header-top {
+    background-color: #0a92be;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 13px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+
+.GOI {
+    display: block;
+    color:black;
+}
+
+
+/* ---------- Main header ---------- */
+
 .header-main {
-    padding: 18px 6%;
+    background-color: white;
     border-bottom: 1px solid #dddddd;
 }
+
+.header-main-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 105px;
+}
+
+
+/* ---------- Left side: Satyamev Jayate + title ---------- */
 
 .organization {
     display: flex;
@@ -43,37 +81,60 @@ body {
     gap: 15px;
 }
 
-.emblem-placeholder {
-    width: 52px;
-    height: 52px;
-    border: 1px solid #777;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    color: #555;
+
+/* Satyamev Jayate logo */
+
+.jayate-logo {
+    width: 60px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
 }
 
-.organization h1 {
+
+/* OceanEmbed title */
+
+.organization-text h1 {
     margin: 0;
     color: #17365d;
     font-size: 28px;
     font-weight: 600;
 }
 
-.organization p {
+.organization-text p {
     margin: 2px 0 0;
     color: #555;
     font-size: 14px;
 }
 
 
-/* ---------- Navigation ---------- */
+/* ---------- Right side: OceanEmbed logo ---------- */
+
+.oceanembed-logo {
+    width: 115px;
+    height: 85px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+
+
+/* ==================================================
+   NAVIGATION
+   ================================================== */
 
 .main-navigation {
-    display: flex;
-    padding: 0 6%;
     background-color: #17365d;
+}
+
+.nav-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding-left: 35px;
+    padding-right: 25px;
+
+    display: flex;
+    align-items: center;
 }
 
 .main-navigation a {
@@ -88,8 +149,22 @@ body {
 }
 
 
-/* ---------- Main content ---------- */
+/* ==================================================
+   MAIN CONTENT
+   ================================================== */
+.main-background {
+    background-image:
+    linear-gradient(
+        rgba(245, 246, 247, 0.25),
+        rgba(245, 246, 247, 0.25)
+    ),
+    url("images/ocean-background.png");
 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
 main {
     max-width: 1050px;
     margin: 0 auto;
@@ -124,44 +199,74 @@ p {
 }
 
 
-/* ---------- Footer ---------- */
+/* ==================================================
+   FOOTER
+   ================================================== */
 
-footer {
-    background-color: #eeeeee;
-    border-top: 1px solid #cccccc;
-    padding: 18px 6%;
+.site-footer {
+    background-color: #063b5c;
+    color: white;
     text-align: center;
-    color: #555;
+    padding: 38px 20px 24px;
+    margin-top: 0;
+}
+
+.footer-content {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.site-footer h2 {
+    margin: 0 0 8px;
+    padding: 0;
+    border: none;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.footer-title {
+    margin: 0;
+    color: #d7e6ee;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.footer-project {
+    margin: 20px 0 10px;
+    color: #b9d1dc;
+    font-size: 14px;
+}
+
+.footer-organizations {
+    margin: 0;
+    color: #a9c5d2;
     font-size: 13px;
 }
 
-
-/* ---------- Mobile layout ---------- */
-
-@media (max-width: 700px) {
-
-    .main-navigation {
-        flex-wrap: wrap;
-    }
-
-    .main-navigation a {
-        padding: 9px 12px;
-    }
-
-    main {
-        padding: 20px 12px 40px;
-    }
-
-    .organization h1 {
-        font-size: 23px;
-    }
-
-    section,
-    .intro-section {
-        padding: 20px;
-    }
+.footer-organizations span {
+    color: #7fa8ba;
+    padding: 0 8px;
 }
-/* ---------- Form elements ---------- */
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+    background-color: #2d6079;
+    margin: 25px auto 18px;
+}
+
+.footer-copyright {
+    margin: 0;
+    color: #8eafbd;
+    font-size: 12px;
+}
+
+
+/* ==================================================
+   FORM ELEMENTS
+   ================================================== */
 
 .notice {
     background-color: #f1f4f7;
@@ -225,6 +330,12 @@ footer {
     background-color: #17365d;
 }
 
+.form-actions button:disabled {
+    background-color: #777;
+    border-color: #777;
+    cursor: not-allowed;
+}
+
 .result-section {
     margin-top: 30px;
     border-top: 1px solid #d5d5d5;
@@ -237,16 +348,9 @@ footer {
 }
 
 
-/* ---------- Mobile form layout ---------- */
-
-@media (max-width: 700px) {
-
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-/* ---------- Prediction table ---------- */
+/* ==================================================
+   PREDICTION TABLE
+   ================================================== */
 
 .prediction-table-container {
     margin-top: 30px;
@@ -259,13 +363,11 @@ footer {
     font-size: 16px;
 }
 
-
 #prediction-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
 }
-
 
 #prediction-table th,
 #prediction-table td {
@@ -274,25 +376,20 @@ footer {
     text-align: left;
 }
 
-
 #prediction-table th {
     background-color: #eeeeee;
     color: #333;
     font-weight: 600;
 }
 
-
 #prediction-table tr:nth-child(even) {
     background-color: #f8f8f8;
 }
-.form-actions button:disabled {
-    background-color: #777;
-    border-color: #777;
-    cursor: not-allowed;
-}
-/* =========================================================
-   OceanEmbed - Additional Information Sections
-   ========================================================= */
+
+
+/* ==================================================
+   ADDITIONAL INFORMATION SECTIONS
+   ================================================== */
 
 .content-section {
     margin-top: 40px;
@@ -318,7 +415,7 @@ footer {
 }
 
 
-/* Information cards */
+/* ---------- Information cards ---------- */
 
 .info-grid {
     display: grid;
@@ -347,7 +444,7 @@ footer {
 }
 
 
-/* Data source table */
+/* ---------- Data source table ---------- */
 
 .data-table {
     width: 100%;
@@ -374,14 +471,16 @@ footer {
 }
 
 
-/* Prototype notice */
+/* ---------- Prototype notice ---------- */
 
 .content-section .notice {
     margin-top: 22px;
 }
 
 
-/* Performance cards */
+/* ==================================================
+   PERFORMANCE
+   ================================================== */
 
 .performance-grid {
     display: grid;
@@ -420,7 +519,9 @@ footer {
 }
 
 
-/* Depth list */
+/* ==================================================
+   DEPTH LIST
+   ================================================== */
 
 .depth-list {
     display: flex;
@@ -438,7 +539,9 @@ footer {
 }
 
 
-/* Limitations */
+/* ==================================================
+   LIMITATIONS
+   ================================================== */
 
 .limitations-list {
     margin-top: 15px;
@@ -452,30 +555,9 @@ footer {
 }
 
 
-/* Responsive layout */
-
-@media (max-width: 768px) {
-
-    .info-grid,
-    .performance-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .content-section {
-        padding: 20px;
-    }
-
-    .data-table {
-        font-size: 13px;
-    }
-
-    .data-table th,
-    .data-table td {
-        padding: 8px;
-    }
-
-}
-/* ---------- Real data evidence ---------- */
+/* ==================================================
+   REAL DATA EVIDENCE
+   ================================================== */
 
 .evidence-section {
     margin-top: 35px;
@@ -518,7 +600,11 @@ footer {
     color: #555555 !important;
     text-align: center;
 }
-/* Spatial temperature reconstruction */
+
+
+/* ==================================================
+   SPATIAL TEMPERATURE RECONSTRUCTION
+   ================================================== */
 
 .spatial-controls {
     margin: 20px 0;
@@ -567,13 +653,6 @@ footer {
     background-color: white;
 }
 
-@media (max-width: 800px) {
-
-    .spatial-comparison {
-        grid-template-columns: 1fr;
-    }
-
-}
 .spatial-rmse-chart {
     margin-top: 30px;
     padding: 20px;
@@ -599,6 +678,7 @@ footer {
 .spatial-rmse-chart .image-caption {
     margin-bottom: 0;
 }
+
 .spatial-error-summary p {
     font-size: 16px;
     line-height: 1.6;
@@ -611,9 +691,10 @@ footer {
     margin-top: 10px;
 }
 
-/* ================================
-   ARGO VALIDATION SECTION
-   ================================ */
+
+/* ==================================================
+   ARGO VALIDATION
+   ================================================== */
 
 .argo-validation-section {
     padding: 70px 6%;
@@ -699,6 +780,11 @@ footer {
     border: 1px solid #d9e2ec;
 }
 
+
+/* ==================================================
+   RESPONSIVE LAYOUT
+   ================================================== */
+
 @media (max-width: 900px) {
 
     .argo-info-grid {
@@ -714,6 +800,110 @@ footer {
     }
 }
 
+
+@media (max-width: 800px) {
+
+    .spatial-comparison {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .info-grid,
+    .performance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-section {
+        padding: 20px;
+    }
+
+    .data-table {
+        font-size: 13px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 8px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    /* Header */
+
+    .header-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .header-main-container {
+        min-height: 85px;
+    }
+
+    .organization {
+        gap: 10px;
+    }
+
+    .jayate-logo {
+        width: 45px;
+        height: 60px;
+    }
+
+    .organization-text h1 {
+        font-size: 21px;
+    }
+
+    .organization-text p {
+        font-size: 11px;
+    }
+
+    .oceanembed-logo {
+        width: 75px;
+        height: 60px;
+    }
+
+
+    /* Navigation */
+
+    .main-navigation {
+        overflow-x: auto;
+    }
+
+    .nav-container {
+        padding-left: 20px;
+        padding-right: 15px;
+        flex-wrap: wrap;
+    }
+
+    .main-navigation a {
+        padding: 9px 12px;
+    }
+
+
+    /* Main */
+
+    main {
+        padding: 20px 12px 40px;
+    }
+
+    section,
+    .intro-section {
+        padding: 20px;
+    }
+
+
+    /* Forms */
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 @media (max-width: 600px) {
 
     .argo-info-grid {
@@ -723,4 +913,20 @@ footer {
     .argo-validation-section {
         padding: 50px 5%;
     }
+}
+.back-to-top {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 8px 18px;
+    border: 1px solid #8fb5c5;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    background-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.back-to-top:hover {
+    background-color: white;
+    color: #063b5c;
 }
