@@ -384,16 +384,158 @@ OceanEmbed/
 
 ## 9. Installation
 
-The project uses a dedicated Python environment for its machine-learning
-and ocean-data processing components.
+The project uses Python for model inference, data processing and the FastAPI backend.
+
+### Requirements
+
+- Python 3.x
+- PyTorch
+- NumPy
+- Pandas
+- scikit-learn
+- xarray
+- NetCDF4
+- FastAPI
+- Uvicorn
+- Joblib
+
+Install the required Python packages using:
+
+```powershell
+pip install -r requirements.txt
+```
+
+### Start the backend
 
 Activate the project environment:
 
 ```powershell
-Terminal 1:
 conda activate copernicus_env
-python -m uvicorn backend:app --reload
-
-Terminal 2:
-open frontend/index.html
 ```
+
+Then start the FastAPI server:
+
+```powershell
+python -m uvicorn backend:app --reload
+```
+
+The backend will normally be available at:
+
+```text
+http://127.0.0.1:8000
+```
+
+### Open the frontend
+
+The frontend is located in:
+
+```text
+frontend/index.html
+```
+
+Open the frontend using the local development method configured for the project.
+
+The web interface communicates with the FastAPI backend to generate temperature profiles and display the results.
+
+---
+
+## 10. Technology Stack
+
+| Component | Technology |
+|---|---|
+| Programming | Python, HTML, CSS, JavaScript |
+| Deep Learning | PyTorch |
+| Backend | FastAPI |
+| Server | Uvicorn |
+| Numerical Processing | NumPy, Pandas |
+| Scientific Data Processing | xarray, NetCDF |
+| Data Scaling | scikit-learn, Joblib |
+| Interactive Visualization | Chart.js |
+| Scientific Plots | Matplotlib |
+| Ocean Data | GLORYS12V1, satellite/ocean observation products, ARGO |
+| Version Control | Git, GitHub |
+
+---
+
+## 11. Current Limitations
+
+The current implementation is a prototype and has several limitations.
+
+1. The present neural network is trained on a controlled realistic synthetic dataset rather than a large synchronized satellite-GLORYS training archive.
+
+2. Real GLORYS data is currently used for a small demonstration subset rather than full North Indian Ocean training.
+
+3. The spatial demonstration covers only a small four-point 0.25° grid.
+
+4. The ARGO evaluation currently consists of a single independent profile and should therefore be treated as a diagnostic rather than statistically representative validation.
+
+5. Latitude and longitude are currently used by the web interface to identify the requested location but are not direct inputs to the current neural-network architecture.
+
+6. The current prototype does not yet provide operational daily reconstruction over the complete North Indian Ocean domain.
+
+7. Large-scale independent validation using multiple ARGO profiles, dates and geographical regions remains to be completed.
+
+---
+
+## 12. Future Scope
+
+The prototype provides a foundation for scaling OceanEmbed toward the complete problem-statement objective.
+
+Planned extensions include:
+
+- Training on synchronized real satellite and GLORYS observations.
+- Expansion to the complete North Indian Ocean domain.
+- Daily reconstruction on the target 0.25° spatial grid.
+- Automated multi-source ocean-data harmonization.
+- Large-scale independent validation using multiple ARGO profiles.
+- Evaluation across different seasons and oceanic regions.
+- Improved representation of thermocline and intermediate-depth structures.
+- Uncertainty estimation for reconstructed temperature profiles.
+- Integration with operational ocean-data workflows.
+- Extension of the spatial visualization toward larger ocean domains.
+
+---
+
+## 13. References
+
+### Ocean Reanalysis
+
+Copernicus Marine Service, GLORYS12V1 Global Ocean Physics Reanalysis.
+
+DOI: https://doi.org/10.48670/moi-00021
+
+### Sea Surface Temperature
+
+Copernicus Marine Service, Global Ocean OSTIA Sea Surface Temperature.
+
+DOI: https://doi.org/10.48670/moi-00168
+
+### Sea Surface Salinity
+
+Copernicus Marine Service, Global Ocean Surface Salinity Observation Products.
+
+### Sea Level and Surface Currents
+
+Copernicus Marine Service, Global Ocean Sea Level Observation Products.
+
+### ARGO
+
+ARGO Programme — Global array of profiling floats for observing the ocean.
+
+INCOIS ocean observation and ARGO data services were used for the independent profile diagnostic.
+
+### Problem Statement
+
+Smart India Hackathon 2026 — SIH26066
+
+**OceanEmbed: Satellite Embedding-Based Deep Learning Framework for Reconstruction of Subsurface Ocean Temperature from Surface Satellite Observations**
+
+---
+
+## 14. Prototype Disclaimer
+
+OceanEmbed is a student-developed research prototype created for Smart India Hackathon 2026.
+
+The numerical results presented in this repository are intended to demonstrate the feasibility of the proposed workflow. Synthetic-data metrics, small real-data demonstrations and the single-profile ARGO diagnostic should not be interpreted as operational ocean prediction accuracy.
+
+Large-scale real-data training and statistically representative independent validation are planned as subsequent development stages.
